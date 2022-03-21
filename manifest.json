@@ -1,0 +1,20 @@
+{
+  "name": "Access Log",
+  "author": {
+    "name": "Plataforma de atendimento",
+    "email": "platataforma_atendimento@picpay.com",
+    "url": ""
+  },
+  "defaultLocale": "pt",
+  "private": true,
+  "location": {
+    "support": {
+      "ticket_sidebar": {
+        "url" : "assets/iframe.html",
+        "visible": false
+      }
+    }
+  },
+  "version": "1.0.0",
+  "frameworkVersion": "2.0"
+}

@@ -1,0 +1,9 @@
+{
+  "app": {
+    "name": "Log de acesso aos tickets",
+    "short_description": "Aplicativo para log de acessos",
+    "long_description": "O aplicativo permitirá que os acessos aos tickets sejam logados",
+    "installation_instructions": "Forneça os parâmetros necessários ...",
+    "title": "Log de acesso aos tickets"
+  }
+}
