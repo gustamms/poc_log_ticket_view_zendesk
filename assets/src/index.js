@@ -15,6 +15,8 @@ async function getLogData() {
 
   let { currentAccount: {subdomain} } = await client.get('currentAccount');
   
+  let context = await client.context();
+
   let { ticket } = await client.get('ticket');
   
   let { currentUser } =  await client.get('currentUser');
@@ -27,21 +29,22 @@ async function getLogData() {
     ticket,
     currentUser,
     consumerId: consumerId[customFieldName],
-    dateTime
+    dateTime,
+    context
   }
 
 
   try{
-    let response = await fetch(, {
-      method: 'POST',
-      body: JSON.stringify(logData),
-      headers: {
-        'Accept': 'application/json',
-        'Content-type': 'application/json; charset=UTF-8'
-      }
+
+    let response = await client.request({
+      url: API_URL,
+      cors: true,
+      type: 'POST',
+      dataType: 'application/json',
+      data: JSON.stringify(logData)
     });
     
-    console.log(await response.json());
+    console.log(JSON.parse(response));
 
   }catch(e){
     console.log(e);
