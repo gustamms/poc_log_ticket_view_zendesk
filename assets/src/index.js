@@ -33,15 +33,19 @@ async function getLogData() {
     context
   }
 
-
   try{
 
+    console.log(basicAuthorization());
+    
     let response = await client.request({
       url: API_URL,
       cors: true,
       type: 'POST',
       dataType: 'application/json',
-      data: JSON.stringify(logData)
+      data: JSON.stringify(logData),
+      headers: {
+        'Authorization': basicAuthorization()
+      },
     });
     
     console.log(JSON.parse(response));
@@ -49,6 +53,13 @@ async function getLogData() {
   }catch(e){
     console.log(e);
   }
+}
+
+function basicAuthorization() {
+  const { basicAuthUser } = client.app.settings;
+  const { basicAuthPassword } = client.app.settings;
+  const credential = `${basicAuthUser}:${basicAuthPassword}`;
+  return `Basic ${btoa(credential)}`;
 }
 
 getLogData();
