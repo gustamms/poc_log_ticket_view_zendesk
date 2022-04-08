@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+html {
+  overflow-y: hidden;
+}
+
+body {
+  font-family: inherit;
+  font-size: 1em;
+}
